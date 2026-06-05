@@ -93,4 +93,3 @@ CREATE TABLE service_history (
         REFERENCES token(token_id)
         ON DELETE CASCADE
 );
-select * from token;
