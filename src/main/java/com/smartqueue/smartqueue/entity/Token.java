@@ -24,7 +24,6 @@ public class Token {
     @JoinColumn(name = "user_id")
     private User user;
 
-
     public Long getTokenId() {
         return tokenId;
     }
@@ -71,6 +70,16 @@ public class Token {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    private java.time.LocalDateTime createdAt = java.time.LocalDateTime.now();
+
+    public java.time.LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(java.time.LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
 }
