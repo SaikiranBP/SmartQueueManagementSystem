@@ -2,8 +2,14 @@
    SMARTQUEUE MANAGEMENT SYSTEM - CLIENT CONTROLLER (VANILLA JS)
    ========================================================================== */
 
-// Determine API Base URL. Auto-connects to localhost:8080 if loaded on a different host/port
-const API_BASE = window.location.origin === 'http://localhost:8080' ? '' : 'http://localhost:8080';
+// Determine API Base URL. Uses localhost if running locally, otherwise points to cloud backend URL.
+const PROD_API_URL = 'https://smartqueue-backend.onrender.com'; // Replace with your actual live backend URL if hosting separately
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
+    ? 'http://localhost:8080'
+    : (window.location.origin.includes('netlify.app') || window.location.origin.includes('vercel.app') || window.location.origin.includes('github.io')
+        ? PROD_API_URL
+        : window.location.origin);
+
 
 // ==========================================================================
 // LOCAL DEMO & OFFLINE SIMULATION LAYER
